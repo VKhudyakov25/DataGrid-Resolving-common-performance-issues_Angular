@@ -1,32 +1,27 @@
-<!-- <div>
-  <div style="width: 100%; margin-left: calc(100% - (150px * 7))">
-    <div style="width: 150px; text-align: center"> -->
 <dx-check-box
   text="select all flag1"
   (onValueChanged)="clicking($event, 'flag1')"
 ></dx-check-box>
-<!-- </div>
-  </div>
-</div> -->
+
 <br />
 
-<!-- <div style="width: 100%; height: calc(100% - 40px)"> -->
 <dx-data-grid
   #gridDepp
   id="gridDepp"
-  [dataSource]="store"
+  [dataSource]="dataSource"
   [showBorders]="true"
   [wordWrapEnabled]="false"
   [rowAlternationEnabled]="true"
   [repaintChangesOnly]="true"
+  [renderAsync]="true"
 >
-  <dxo-selection mode="multiple" [deferred]="false"></dxo-selection>
+  <dxo-selection mode="multiple" [deferred]="true"></dxo-selection>
   <dxo-load-panel [enabled]="true"></dxo-load-panel>
   <dxo-scrolling
-    mode="virtual"
+    mode="infinite"
     preloadEnabled="true"
     columnRenderingMode="standard"
-    rowRenderingMode="virtual"
+    rowRenderingMode="standard"
     showScrollbar="always"
     useNative="true"
   ></dxo-scrolling>
@@ -138,4 +133,3 @@
     ></dx-check-box>
   </div>
 </dx-data-grid>
-<!-- </div> -->
