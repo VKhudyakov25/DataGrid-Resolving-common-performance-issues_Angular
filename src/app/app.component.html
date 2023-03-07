@@ -1,0 +1,141 @@
+<!-- <div>
+  <div style="width: 100%; margin-left: calc(100% - (150px * 7))">
+    <div style="width: 150px; text-align: center"> -->
+<dx-check-box
+  text="select all flag1"
+  (onValueChanged)="clicking($event, 'flag1')"
+></dx-check-box>
+<!-- </div>
+  </div>
+</div> -->
+<br />
+
+<!-- <div style="width: 100%; height: calc(100% - 40px)"> -->
+<dx-data-grid
+  #gridDepp
+  id="gridDepp"
+  [dataSource]="store"
+  [showBorders]="true"
+  [wordWrapEnabled]="false"
+  [rowAlternationEnabled]="true"
+  [repaintChangesOnly]="true"
+>
+  <dxo-selection mode="multiple" [deferred]="false"></dxo-selection>
+  <dxo-load-panel [enabled]="true"></dxo-load-panel>
+  <dxo-scrolling
+    mode="virtual"
+    preloadEnabled="true"
+    columnRenderingMode="standard"
+    rowRenderingMode="virtual"
+    showScrollbar="always"
+    useNative="true"
+  ></dxo-scrolling>
+
+  <dxi-column type="buttons" [width]="80">
+    <dxi-button
+      [hint]="'Copy to users'"
+      icon="copy"
+      visible="true"
+      (onClick)="clickme($event)"
+    ></dxi-button>
+  </dxi-column>
+
+  <dxi-column
+    dataField="depp"
+    [caption]="'Store'"
+    [width]="80"
+    [allowEditing]="false"
+  >
+  </dxi-column>
+  <dxi-column
+    dataField="descr"
+    [caption]="'Description'"
+    [allowEditing]="false"
+  ></dxi-column>
+  <dxi-column
+    dataField="flag1"
+    cellTemplate="cellTemplateVISREP"
+    [caption]="'Print'"
+    [width]="150"
+  ></dxi-column>
+  <dxi-column
+    dataField="flag2"
+    cellTemplate="cellTemplateMOVPRI"
+    [caption]="'Primary depp transaction'"
+    [width]="150"
+  ></dxi-column>
+  <dxi-column
+    dataField="flag3"
+    cellTemplate="cellTemplateMOVSEC"
+    [caption]="'Secondary depp transaction'"
+    [width]="150"
+  ></dxi-column>
+  <dxi-column
+    dataField="flag4"
+    cellTemplate="cellTemplateCLIFOR"
+    [caption]="'Manage cli/for'"
+    [width]="150"
+  ></dxi-column>
+  <dxi-column
+    dataField="flag5"
+    cellTemplate="cellTemplateCLIFORV"
+    [caption]="'Unchange Cli/For'"
+    [width]="150"
+  ></dxi-column>
+  <dxi-column
+    dataField="flag6"
+    cellTemplate="cellTemplateCONFDOC"
+    [caption]="'Update Doc.'"
+    [width]="150"
+  ></dxi-column>
+  <dxi-column
+    dataField="flag7"
+    cellTemplate="cellTemplateINQUIRY"
+    [caption]="'Inquiry only or Ref.Doc.'"
+    [width]="150"
+  ></dxi-column>
+
+  <div *dxTemplate="let x of 'cellTemplateVISREP'">
+    <dx-check-box
+      [(value)]="x.data.flag1"
+      (onValueChanged)="gridDepp_change(x, 'VISREP')"
+    ></dx-check-box>
+  </div>
+  <div *dxTemplate="let x of 'cellTemplateMOVPRI'">
+    <dx-check-box
+      [(value)]="x.data.flag2"
+      (onValueChanged)="gridDepp_change(x, 'MOVPRI')"
+    ></dx-check-box>
+  </div>
+  <div *dxTemplate="let x of 'cellTemplateMOVSEC'">
+    <dx-check-box
+      [(value)]="x.data.flag3"
+      (onValueChanged)="gridDepp_change(x, 'MOVPRI')"
+    ></dx-check-box>
+  </div>
+  <div *dxTemplate="let x of 'cellTemplateCLIFOR'">
+    <dx-check-box
+      [(value)]="x.data.flag4"
+      (onValueChanged)="gridDepp_change(x, 'MOVPRI')"
+    ></dx-check-box>
+  </div>
+  <div *dxTemplate="let x of 'cellTemplateCLIFORV'">
+    <dx-check-box
+      [(value)]="x.data.flag5"
+      (onValueChanged)="gridDepp_change(x, 'MOVPRI')"
+    ></dx-check-box>
+  </div>
+  <div *dxTemplate="let x of 'cellTemplateCONFDOC'">
+    <dx-check-box
+      [(value)]="x.data.flag6"
+      (onValueChanged)="gridDepp_change(x, 'MOVPRI')"
+    ></dx-check-box>
+  </div>
+  <div *dxTemplate="let x of 'cellTemplateINQUIRY'">
+    <dx-check-box
+      [(value)]="x.data.flag7"
+      (onValueChanged)="gridDepp_change(x, 'INQUIRY')"
+    ></dx-check-box>
+  </div>
+</dx-data-grid>
+<!-- </div> -->
